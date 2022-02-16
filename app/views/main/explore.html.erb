@@ -1,0 +1,13 @@
+<h1> All Users </h1>
+<div class="d-flex flex-column">
+<% @users.each do |user| %>
+    <div class="p-2 bd-highlight d-flex  align-items-center justify-content-evenly">
+        <div>
+            <%= user.email %>
+        </div>
+        <div>
+            <%= link_to "view",profile_path(user.id),class:"btn btn-primary" %>
+        </div>
+        </div>
+    <% end %>
+ </div>

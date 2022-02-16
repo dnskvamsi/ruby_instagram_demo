@@ -1,0 +1,11 @@
+<h1 class="mt-5">Profile Page </h1>
+<% if Current.user == @user%>
+<h3> This is my profile page </h3>
+<p><%= @user.email %></p>
+<div class="d-flex gap-3">
+<%= button_to "Logout",logout_path,method: :delete,class:"btn btn-primary" %>
+<%= link_to "Reset-password",edit_password_path,class:"btn btn-primary" %>
+</div>
+<% else %>
+<%= @user.email %>
+<% end %>
