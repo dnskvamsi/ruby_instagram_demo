@@ -1,6 +1,5 @@
 class MainController < ApplicationController
+    before_action :require_user_login!
     def index
-        flash[:notice] = "LogIN successful"
-        flash[:alert] = "Invalid"
     end
 end

@@ -1,4 +1,6 @@
-<% provide(:title,"Home") %>
+<% provide(:title,"index") %>
 <div class="d-flex align-items-center justify-content-center">
     <h1>Welcome to my new app</h1>
 </div>
+
+<%= button_to "Logout",logout_path, method: :delete,class: "btn btn-primary" %>
