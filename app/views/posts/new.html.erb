@@ -1,0 +1,23 @@
+<h1> Create a Post</h1>
+<%= form_with model: @post,url: post_path do |form| %>
+
+    <% if @post.errors.any? %>
+        <div class="alert alert-danger">
+            <% @post.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <%= form.label :title,class:"form-label" %>
+    <%= form.text_field :title, class:"form-control",placeholder: "Title"%>
+    <%= form.label :description,class:"form-label" %>
+    <%= form.text_area :description,class:"form-control",placeholder: "Description" %>
+    <%= form.label :location,class:"form-label" %>
+    <%= form.text_field :location,class:"form-control",placeholder: "Location Mumbai" %>
+    <%= form.label :image,class:"form-label" %>
+    <%= form.file_field :image,class:"form-control" %>
+    <div class="mt-3">
+    <%= form.submit "Create-Post",class: "btn btn-primary"%>
+    </div>
+<% end %>

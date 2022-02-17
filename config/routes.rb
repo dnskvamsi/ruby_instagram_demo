@@ -28,5 +28,9 @@ Rails.application.routes.draw do
 
   post "search",to: "main#search"
 
+  get "post",to: "posts#new"
+  post "post",to: "posts#create"
+  get "show_post/:id",to: "posts#show",as: :show
+  delete "delete_post/:id",to: "posts#destroy",as: :delete_post
 
 end
