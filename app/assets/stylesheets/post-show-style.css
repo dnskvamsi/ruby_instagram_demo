@@ -1,0 +1,15 @@
+.my-comments {
+  overflow: auto;
+}
+.main-comment {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  row-gap: 10px;
+  height: 500px;
+}
+
+.comments-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}

@@ -19,6 +19,10 @@ class PostsController < ApplicationController
 
     def show
        @post = Post.find(params[:id])
+       @following_person_uid = []
+       Current.user.following.each do |following_person|
+           @following_person_uid.append(following_person.followed_id)
+       end
     end
 
     def destroy
