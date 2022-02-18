@@ -11,7 +11,7 @@ class PostsController < ApplicationController
         user = Current.user
         @post = user.posts.new(post_params)
         if @post.save
-            redirect_to show_path, notice: "Posted"
+            redirect_to profile_path(user.id), notice: "Posted"
         else
             render :new,status: :unprocessable_entity
         end

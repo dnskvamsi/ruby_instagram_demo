@@ -11,7 +11,8 @@ class MainController < ApplicationController
 
     def profile
         @user = User.find(params[:id])
-        @myposts = @user.posts.all
+        @myposts = @user.posts.all.order(created_at: :desc)
+        @rel = @user.followers.find_by(follower: Current.user)
     end
 
     def search
