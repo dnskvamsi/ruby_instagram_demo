@@ -18,5 +18,8 @@ module Gorails
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.fixture_replacement :factory_bot, suffix_factory: 'factory'
+    end
   end
 end

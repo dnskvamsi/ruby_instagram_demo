@@ -10,5 +10,5 @@ class User < ApplicationRecord
     has_many :posts,dependent: :destroy 
     has_many :comments
     has_many :following,foreign_key: "follower_id",class_name: "Relationship"
-    has_many :followers,foreign_key: "followed_id",class_name: "Relationship" 
+    has_many :followers,foreign_key: "followed_id",class_name: "Relationship"
 end
