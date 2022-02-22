@@ -56,6 +56,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-mocks'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -75,3 +76,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'simplecov', require: false, group: :test

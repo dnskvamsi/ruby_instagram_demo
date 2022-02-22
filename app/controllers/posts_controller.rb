@@ -9,6 +9,7 @@ class PostsController < ApplicationController
         # puts(session[:user_id])
         # puts params
         user = Current.user
+        # puts("from current",post_params)
         @post = user.posts.new(post_params)
         if @post.save
             redirect_to profile_path(user.id), notice: "Posted"
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
 
     def show
        @post = Post.find(params[:id])
+    #    puts(@post.user)
        @following_person_uid = []
        Current.user.following.each do |following_person|
            @following_person_uid.append(following_person.followed_id)
@@ -26,8 +28,12 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        Post.find(params[:id]).destroy
-        redirect_to home_path
+        if(Post.find(params[:id]).user == Current.user)
+            Post.find(params[:id]).destroy
+            redirect_to home_path
+        else
+            redirect_to show_path(params[:id])
+        end
     end
     private 
 
