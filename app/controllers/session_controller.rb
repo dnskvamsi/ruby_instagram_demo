@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+    before_action :require_user_login!,only: [:destroy]
 
     def new
         session[:user_id]=nil
@@ -19,4 +20,5 @@ class SessionController < ApplicationController
         session[:user_id] = nil
         redirect_to root_path, notice: "Logged Out"
     end
+
 end

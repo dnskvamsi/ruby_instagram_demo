@@ -8,10 +8,10 @@ RSpec.describe "posts", type: :request do
     }
 
     let(:posted){ build(:post) }
-    let(:valid_attributes){
-        posted.image.attach(io: File.open('spec/test_image/2.jpeg'), filename: '2.jpeg', content_type: 'image/jpeg')
-        {image: posted.image,description: posted.description,title: posted.title,location: posted.location}
-    }
+    # let(:valid_attributes){
+    #     posted.image.attach(io: File.open('spec/test_image/2.jpeg'), filename: '2.jpeg', content_type: 'image/jpeg')
+    #     {image: posted.image,description: posted.description,title: posted.title,location: posted.location}
+    # }
 
     describe "GET /post" do
 
