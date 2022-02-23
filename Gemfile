@@ -70,6 +70,10 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem 'pg', '~> 1.3', '>= 1.3.3'
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
@@ -78,3 +82,4 @@ group :test do
 end
 
 gem 'simplecov', require: false, group: :test
+gem  'cloudinary'
