@@ -45,9 +45,17 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include("Email Must be a valid email address")
     end
 
-    it "has a unique email" do
+    it "has a unique email with exact match" do
       user1 = create(:user,email: "name@gmail.com")
       user2 = build(:user,email: "name@gmail.com")
+      expect(user2.save).to eq(false)
+      user2.save
+      expect(user2.errors.full_messages).to include("Email  already exists")
+    end
+
+    it "has a unique email ignoring case sensitivity" do
+      user1 = create(:user,email: "name@gmail.com")
+      user2 = build(:user,email: "Name@gmail.com")
       expect(user2.save).to eq(false)
       user2.save
       expect(user2.errors.full_messages).to include("Email  already exists")
