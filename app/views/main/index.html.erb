@@ -28,6 +28,11 @@
                         </div>
                     </div>
                     <%= link_to image_tag(post.image,class:"rounded mx-auto d-block",style:"width:400px;height:400px;"),show_path(post.id)%>
+                    <%= turbo_stream_from post,:likes %>
+                    <div id="<%= dom_id(post) %>">
+                        <%= render partial:"shared/likes", locals: {post: post}%>
+                    </div>
+                    <p class="fw-light" style="font-size:11px;">Posted <%= time_ago_in_words post.created_at %> ago </p>
                 </div>
         <% end %>
     </div>

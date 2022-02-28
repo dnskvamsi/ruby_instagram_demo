@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   post "follow/:id",to: "relationships#create",as: :follow
   delete "unfollow/:id",to: "relationships#destroy",as: :unfollow
 
+  post "like/:id",to: "likes#create",as: :like
+  delete "dislike/:id",to: "likes#destroy",as: :dislike
+
 
 
 end

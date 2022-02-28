@@ -37,6 +37,7 @@
                 <p class="ms-3" style="font-size:12px">
                     <%= comment.content %>
                 </p>
+                 <p class="fw-light" style="font-size:11px;">Commented <%= time_ago_in_words comment.created_at%> ago</p>
             <% end %>
         </div>
         <hr>
@@ -48,6 +49,10 @@
                 <%= form.submit "Create-comment",class: "btn btn-primary"%>
             </div>
             <% end %>
+        </div>
+        <%= turbo_stream_from @post,:likes %>
+        <div id="<%= dom_id(@post) %>">
+            <%= render partial:"shared/likes", locals: {post: @post}%>
         </div>
     </div>
 </div>

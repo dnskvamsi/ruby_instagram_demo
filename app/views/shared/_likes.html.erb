@@ -1,0 +1,10 @@
+<% if (Current.user.likes & post.likes).empty? %>
+    <%= button_to  like_path(post.id), class: "btn",remote: true do %>
+    <i class="fa fa-heart-o" style="font-size:20px;"></i>
+    <% end %>
+<% else %>
+    <%= button_to dislike_path(post.id),method: :delete,class: "btn",remote: true do %>
+        <i class="fa fa-heart" style="font-size:20px;color:red"></i>
+    <% end %>
+<%end%>
+<%= post.likes.count %>
